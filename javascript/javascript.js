@@ -1,5 +1,6 @@
 const container = document.querySelector('.drawing-pad');
 const slider = document.querySelector('#grid-size');
+const label = document.querySelector('label');
 makeGrid();
 function removeNodes(parent) {
     while (parent.firstChild) {
@@ -8,6 +9,7 @@ function removeNodes(parent) {
 }
 function makeGrid(e) {
     let sliderValue = slider.value;
+    label.textContent = `Grid size: ${sliderValue} x ${sliderValue}`;
     console.log(slider.value)
     removeNodes(container);
     container.setAttribute('style', `grid-template-columns: repeat(${sliderValue}, 1fr)`);
