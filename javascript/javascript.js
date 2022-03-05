@@ -1,8 +1,8 @@
 const container = document.querySelector('.drawing-pad');
 const slider = document.querySelector('#grid-size');
 const label = document.querySelector('label');
-const warm = ['#FEAA04','#E58004','#FC6E11','#E53B04','#FE5241'];
-const cool = ['#B5FAFF','#7BD3EB','#4FBEFF','#5EA2EB','#73A1FF'];
+const warmColours = ['#FEAA04','#E58004','#FC6E11','#E53B04','#FE5241'];
+const coolColours = ['#B5FAFF','#7BD3EB','#4FBEFF','#5EA2EB','#73A1FF'];
 makeGrid();
 function removeNodes(parent) {
     while (parent.firstChild) {
@@ -40,9 +40,15 @@ function getRandomListElement(list) {
     let randomElement = list[randomNum];
     return randomElement;
 }
+function getWarmColour(e) {
+    e.target.style.background = `${getRandomListElement(warmColours)}`;
+}
+function getCoolColour(e) {
+    e.target.style.background = `${getRandomListElement(coolColours)}`;
+}
 container.addEventListener('mouseover', function (e) {
     if (e.target.classList.contains('square')) {
-        black(e);
+        getCoolColour(e);
     }
 });
 slider.addEventListener('input', function (e) {
