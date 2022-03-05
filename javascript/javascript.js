@@ -1,6 +1,8 @@
 const container = document.querySelector('.drawing-pad');
 const slider = document.querySelector('#grid-size');
 const label = document.querySelector('label');
+const warm = ['#FEAA04','#E58004','#FC6E11','#E53B04','#FE5241'];
+const cool = ['#B5FAFF','#7BD3EB','#4FBEFF','#5EA2EB','#73A1FF'];
 makeGrid();
 function removeNodes(parent) {
     while (parent.firstChild) {
@@ -31,6 +33,12 @@ function getRandomNumber(params) {
 }
 function rainbow(e) {
     e.target.style.background = `rgb(${getRandomNumber()},${getRandomNumber()},${getRandomNumber()})`;
+}
+function getRandomListElement(list) {
+    listLen = list.length;
+    let randomNum = Math.floor(Math.random()*listLen);
+    let randomElement = list[randomNum];
+    return randomElement;
 }
 container.addEventListener('mouseover', function (e) {
     if (e.target.classList.contains('square')) {
