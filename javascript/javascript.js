@@ -26,8 +26,11 @@ function black(e) {
 }
 function getRandomNumber(params) {
     let maxRGBValue = 255;
-    let randomNum = Math.floor(Math.random()*maxRGBValue);
+    let randomNum = Math.floor(Math.random()*maxRGBValue) + 1;
     return randomNum;
+}
+function rainbow(e) {
+    e.target.style.background = `rgb(${getRandomNumber()},${getRandomNumber()},${getRandomNumber()})`;
 }
 container.addEventListener('mouseover', function (e) {
     if (e.target.classList.contains('square')) {
