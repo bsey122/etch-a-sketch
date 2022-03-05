@@ -24,6 +24,11 @@ function makeGrid(e) {
 function black(e) {
     e.target.style.background = 'black';
 }
+function getRandomNumber(params) {
+    let maxRGBValue = 255;
+    let randomNum = Math.floor(Math.random()*maxRGBValue);
+    return randomNum;
+}
 container.addEventListener('mouseover', function (e) {
     if (e.target.classList.contains('square')) {
         black(e);
