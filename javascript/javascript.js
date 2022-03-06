@@ -1,6 +1,6 @@
 const container = document.querySelector('.drawing-pad');
 const slider = document.querySelector('#grid-size');
-const label = document.querySelector('label');
+const gridLabel = document.querySelector('label[for="grid-size"]');
 const warmColours = ['#FEAA04','#E58004','#FC6E11','#E53B04','#FE5241'];
 const coolColours = ['#B5FAFF','#7BD3EB','#4FBEFF','#5EA2EB','#73A1FF'];
 makeGrid();
@@ -11,7 +11,7 @@ function removeNodes(parent) {
 }
 function makeGrid(e) {
     let sliderValue = slider.value;
-    label.textContent = `Grid size: ${sliderValue} x ${sliderValue}`;
+    gridLabel.textContent = `Grid size: ${sliderValue} x ${sliderValue}`;
     console.log(slider.value)
     removeNodes(container);
     container.setAttribute('style', `grid-template-columns: repeat(${sliderValue}, 1fr)`);
