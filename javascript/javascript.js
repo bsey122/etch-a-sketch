@@ -1,6 +1,7 @@
 const container = document.querySelector('.drawing-pad');
 const slider = document.querySelector('#grid-size');
 const gridLabel = document.querySelector('label[for="grid-size"]');
+const inputColour = document.querySelector('#pen-colour');
 const warmColours = ['#FEAA04','#E58004','#FC6E11','#E53B04','#FE5241'];
 const coolColours = ['#B5FAFF','#7BD3EB','#4FBEFF','#5EA2EB','#73A1FF'];
 makeGrid();
@@ -23,8 +24,9 @@ function makeGrid(e) {
         }  
     }  
 }
-function black(e) {
-    e.target.style.background = 'black';
+function getColour(e) {
+    let inputColourValue = inputColour.value;
+    e.target.style.background = inputColourValue;
 }
 function getRandomNumber(params) {
     let maxRGBValue = 255;
