@@ -53,6 +53,9 @@ function getWarmColour(e) {
 function getCoolColour(e) {
     e.target.style.background = `${getRandomListElement(coolColours)}`;
 }
+function eraser(e) {
+    e.target.removeAttribute('style');
+}
 slider.addEventListener('input', function (e) {
     makeGrid();
 });
@@ -80,6 +83,13 @@ function setColour(e) {
                 }
             });
             break;
+        case 'Eraser':
+            container.addEventListener('mouseover', function (e) {
+                if (e.target.classList.contains('square')) {
+                    eraser(e);
+                }
+            });
+            break;
         case 'Clear':
             makeGrid();
             break;
@@ -103,4 +113,4 @@ inputColour.addEventListener('click', function (e) {
             getColour(e);
         }
     });
-})
+});
