@@ -2,6 +2,11 @@ const container = document.querySelector('.drawing-pad');
 const slider = document.querySelector('#grid-size');
 const gridLabel = document.querySelector('label[for="grid-size"]');
 const inputColour = document.querySelector('#pen-colour');
+const warmBtn = document.querySelector('#Warm');
+const coolBtn = document.querySelector('#Cool');
+const randomBtn = document.querySelector('#Random');
+const clearBtn = document.querySelector('#Clear');
+const buttons = document.querySelectorAll('button');
 const warmColours = ['#FEAA04','#E58004','#FC6E11','#E53B04','#FE5241'];
 const coolColours = ['#B5FAFF','#7BD3EB','#4FBEFF','#5EA2EB','#73A1FF'];
 makeGrid();
@@ -10,7 +15,7 @@ function removeNodes(parent) {
         parent.removeChild(parent.firstChild);
     }
 }
-function makeGrid(e) {
+function makeGrid() {
     let sliderValue = slider.value;
     gridLabel.textContent = `Grid size: ${sliderValue} x ${sliderValue}`;
     console.log(slider.value)
@@ -48,11 +53,54 @@ function getWarmColour(e) {
 function getCoolColour(e) {
     e.target.style.background = `${getRandomListElement(coolColours)}`;
 }
-container.addEventListener('mouseover', function (e) {
-    if (e.target.classList.contains('square')) {
-        getCoolColour(e);
-    }
-});
 slider.addEventListener('input', function (e) {
     makeGrid();
 });
+function setColour(e) {
+    const choice = e.target.id;
+    switch (choice) {
+        case 'Warm':
+            container.addEventListener('mouseover', function (e) {
+                if (e.target.classList.contains('square')) {
+                    getWarmColour(e);
+                }
+            });
+            break;
+        case 'Cool':
+            container.addEventListener('mouseover', function (e) {
+                if (e.target.classList.contains('square')) {
+                    getCoolColour(e);
+                }
+            });
+            break;
+        case 'Random':
+            container.addEventListener('mouseover', function (e) {
+                if (e.target.classList.contains('square')) {
+                    rainbow(e);
+                }
+            });
+            break;
+        case 'Clear':
+            makeGrid();
+            break;
+    
+        default:
+            
+            break;
+    }
+}
+container.addEventListener('mouseover', function (e) {
+    if (e.target.classList.contains('square')) {
+        getColour(e);
+    }
+});
+buttons.forEach((button) => {
+    button.addEventListener('click', setColour);
+});
+inputColour.addEventListener('click', function (e) {
+    container.addEventListener('mouseover', function (e) {
+        if (e.target.classList.contains('square')) {
+            getColour(e);
+        }
+    });
+})
