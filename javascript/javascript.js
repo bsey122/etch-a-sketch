@@ -72,6 +72,10 @@ function scratch() {
     }
     container.classList.add('scratch-bg');
 }
+function removeScratch() {
+    makeGrid();
+    container.classList.remove('scratch-bg');
+}
 slider.addEventListener('input', function (e) {
     makeGrid();
 });
