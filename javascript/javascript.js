@@ -76,6 +76,11 @@ function removeScratch() {
     makeGrid();
     container.classList.remove('scratch-bg');
 }
+function removeScratchCondition() {
+    if (container.classList.contains('scratch-bg')) {
+        removeScratch();
+    }
+}
 slider.addEventListener('input', function (e) {
     makeGrid();
 });
@@ -88,6 +93,7 @@ function setColour(e) {
                     getWarmColour(e);
                 }
             });
+            removeScratchCondition();
             break;
         case 'Cool':
             container.addEventListener('mouseover', function (e) {
@@ -95,6 +101,7 @@ function setColour(e) {
                     getCoolColour(e);
                 }
             });
+            removeScratchCondition();
             break;
         case 'Random':
             container.addEventListener('mouseover', function (e) {
@@ -102,6 +109,7 @@ function setColour(e) {
                     rainbow(e);
                 }
             });
+            removeScratchCondition();
             break;
         case 'Scratch':
             scratch();
@@ -120,6 +128,7 @@ function setColour(e) {
             break;
         case 'Clear':
             makeGrid();
+            removeScratchCondition();
             break;
     
         default:
@@ -141,4 +150,5 @@ inputColour.addEventListener('click', function (e) {
             getColour(e);
         }
     });
+    removeScratchCondition();
 });
