@@ -79,7 +79,11 @@ function removeScratch() {
     }
 }
 slider.addEventListener('input', function (e) {
-    makeGrid();
+    if (container.classList.contains('scratch-bg')) {
+        scratch();
+    } else {
+        makeGrid();
+    }
 });
 function setColour(e) {
     const choice = e.target.id;
