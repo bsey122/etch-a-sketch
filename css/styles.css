@@ -1,7 +1,14 @@
+body {
+    background-color: #92BCEA;
+    color: #08070E;
+    font-family: 'Roboto', sans-serif;
+}
 .drawing-pad {
     width: 500px;
     height: 500px;
     display: grid;
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 .scratch-bg {
     background: linear-gradient(
@@ -18,4 +25,49 @@
         rgba(251, 7, 217, 1) 90%,
         rgba(255, 0, 0, 1) 100%
     );
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.features{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;  
+}
+.header{
+    display: flex;
+    justify-content: center;
+}
+#pen-colour, label{
+    align-self: center;
+}
+#pen-colour{
+    -webkit-appearance: none;
+    padding: 0;
+    border: none;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+#pen-colour::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+}
+#pen-colour::-webkit-color-swatch-wrapper {
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+}
+.btn {
+    background-color: #36558F;
+    color: #F0F3F5;
+    border: none;
+    padding: 15px 32px;
+    font-size: 16px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
